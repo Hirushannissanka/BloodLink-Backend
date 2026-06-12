@@ -1,4 +1,9 @@
 package com.v1.auth.dto.response;
 
-public class AuthResponse {
+import lombok.Data;
+
+@Data
+public class AuthResponse extends Response {
+    private String username;
 }
+
