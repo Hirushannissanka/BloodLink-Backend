@@ -5,9 +5,11 @@ import com.v1.auth.dto.response.AuthResponse;
 import com.v1.auth.entity.User;
 import com.v1.auth.repository.UserRepository;
 import com.v1.auth.service.AuthService;
+import com.v1.auth.utils.JwtUtil;
 import com.v1.auth.utils.ResponseCodes;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -20,6 +22,12 @@ public class AuthServiceImpl implements AuthService {
 
     @Autowired
     ModelMapper modelMapper;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtUtil jwtUtil;
 
     @Override
     public AuthResponse login(AuthRequest authRequest) {
@@ -39,8 +47,13 @@ public class AuthServiceImpl implements AuthService {
         }
         try{
             User user = modelMapper.map(authRequest, User.class);
+            user.setPassword(passwordEncoder.encode(authRequest.getPassword()));
             userRepository.save(user);
             authResponse.setUsername(user.getUserName());
+            authResponse.setResponseCode(ResponseCodes.SUCCESS);
+
+            String token = jwtUtil.generateToken(user);
+            authResponse.setToken(token);
             authResponse.setResponseCode(ResponseCodes.SUCCESS);
 
 

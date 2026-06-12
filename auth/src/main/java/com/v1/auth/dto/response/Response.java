@@ -7,4 +7,5 @@ public class Response {
     private String responseCode;
     private String status;
     private String message;
+
 }
