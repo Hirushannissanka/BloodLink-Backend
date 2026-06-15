@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,4 +23,11 @@ public class User {
  private String address;
  @Enumerated(EnumType.STRING)
  private UserRole role;
+
+ //donar atributes
+ /*@Enumerated(EnumType.STRING)
+ private BloodGroup bloodGroup;
+ @Enumerated(EnumType.STRING)
+ private AvailabilityStatus availabilityStatus;
+ private LocalDate lastDonationDate;*/
 }

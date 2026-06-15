@@ -1,8 +1,11 @@
 package com.v1.auth.service.impl;
 
+import com.v1.auth.client.DonorClient;
 import com.v1.auth.dto.request.AuthRequest;
+import com.v1.auth.dto.request.DonarRequest;
 import com.v1.auth.dto.response.AuthResponse;
 import com.v1.auth.entity.User;
+import com.v1.auth.entity.UserRole;
 import com.v1.auth.repository.UserRepository;
 import com.v1.auth.service.AuthService;
 import com.v1.auth.utils.JwtUtil;
@@ -29,6 +32,9 @@ public class AuthServiceImpl implements AuthService {
     @Autowired
     private JwtUtil jwtUtil;
 
+    @Autowired
+    private DonorClient donorClient;
+
     @Override
     public AuthResponse login(AuthRequest authRequest) {
         AuthResponse authResponse = new AuthResponse();
@@ -46,6 +52,14 @@ public class AuthServiceImpl implements AuthService {
             return authResponse;
         }
         try{
+            /*modelMapper.typeMap(AuthRequest.class, User.class)
+                    .addMappings(mapper -> {
+                        mapper.skip(User::setBloodGroup);
+                        mapper.skip(User::setAvailabilityStatus);
+                        mapper.skip(User::setLastDonationDate);
+
+                    });*/
+
             User user = modelMapper.map(authRequest, User.class);
             user.setPassword(passwordEncoder.encode(authRequest.getPassword()));
             userRepository.save(user);
@@ -55,6 +69,19 @@ public class AuthServiceImpl implements AuthService {
             String token = jwtUtil.generateToken(user);
             authResponse.setToken(token);
             authResponse.setResponseCode(ResponseCodes.SUCCESS);
+
+            if(user.getRole()== UserRole.Donar){
+                DonarRequest donarRequest = new DonarRequest();
+                donarRequest.setUserId(user.getUserId());
+                donarRequest.setBloodGroup(authRequest.getBloodGroup());
+                donarRequest.setAvailabilityStatus(authRequest.getAvailabilityStatus());
+                donarRequest.setLastDonateDate(authRequest.getLastDonationDate());
+                //System.out.println(donarRequest);
+                donorClient.sendDonorDetails(donarRequest);
+               // System.out.println(d);
+
+            }
+
 
 
         }catch (Exception e){
