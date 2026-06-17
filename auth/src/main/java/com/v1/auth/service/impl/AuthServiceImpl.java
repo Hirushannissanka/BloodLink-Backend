@@ -75,7 +75,7 @@ public class AuthServiceImpl implements AuthService {
                 donarRequest.setUserId(user.getUserId());
                 donarRequest.setBloodGroup(authRequest.getBloodGroup());
                 donarRequest.setAvailabilityStatus(authRequest.getAvailabilityStatus());
-                donarRequest.setLastDonateDate(authRequest.getLastDonationDate());
+                donarRequest.setLastDonationDate(authRequest.getLastDonationDate());
                 //System.out.println(donarRequest);
                 donorClient.sendDonorDetails(donarRequest);
                // System.out.println(d);

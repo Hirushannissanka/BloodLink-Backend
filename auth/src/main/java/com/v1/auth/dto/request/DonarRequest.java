@@ -14,6 +14,6 @@ public class DonarRequest {
     private Long userId;
     private AvailabilityStatus availabilityStatus;
     private BloodGroup bloodGroup;
-    private LocalDate lastDonateDate;
+    private LocalDate lastDonationDate;
 
 }

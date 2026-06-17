@@ -10,7 +10,7 @@ public class DonorClient{
 
     public DonorClient(WebClient.Builder builder) {
         this.webClient = builder.baseUrl("http://localhost:8082/donar").build();
-        // Replace with actual Donor Service URL or Eureka service name
+
     }
 
     public void sendDonorDetails(DonarRequest donarRequest) {
