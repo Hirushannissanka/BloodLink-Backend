@@ -17,7 +17,7 @@ public class DonorResponse {
     private String donorId;
     //private String email;
     //private String phone;
-    //private AvailabilityStatus availabilityStatus;
-    //private LocalDate lastDonationDate;
-    //private BloodGroup bloodGroup;
+    private AvailabilityStatus availabilityStatus;
+    private LocalDate lastDonationDate;
+    private BloodGroup bloodGroup;
 }
