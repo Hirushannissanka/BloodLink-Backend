@@ -7,8 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="bloodbank" />
+        <module name="notification" />
       </profile>
-      <profile name="Annotation profile for donor" enabled="true">
+      <profile name="Annotation profile for patient_request" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -16,10 +18,8 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
         </processorPath>
         <module name="patient_request" />
-        <module name="bloodbank" />
-        <module name="notification" />
-        <module name="donor" />
         <module name="auth" />
+        <module name="donor" />
       </profile>
     </annotationProcessing>
   </component>
