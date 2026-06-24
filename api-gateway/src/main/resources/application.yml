@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+app:
+  services:
+    auth-url: ${AUTH_SERVICE_URL:http://localhost:8081}
+    request-url: ${REQUEST_SERVICE_URL:http://localhost:8082}
+    camp-url: ${CAMP_SERVICE_URL:http://localhost:8083}
+    notification-url: ${NOTIFICATION_SERVICE_URL:http://localhost:8084}

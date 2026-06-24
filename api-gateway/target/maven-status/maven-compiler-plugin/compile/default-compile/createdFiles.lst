@@ -1,0 +1,4 @@
+com\bloodlink\gateway\ProxyController.class
+com\bloodlink\gateway\ApiGatewayApplication.class
+com\bloodlink\gateway\CorsConfig$1.class
+com\bloodlink\gateway\CorsConfig.class

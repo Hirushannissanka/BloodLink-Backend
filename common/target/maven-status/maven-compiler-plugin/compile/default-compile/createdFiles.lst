@@ -1,0 +1,10 @@
+com\bloodlink\common\model\RequestStatus.class
+com\bloodlink\common\model\BloodType$1.class
+com\bloodlink\common\model\UrgencyLevel$1.class
+com\bloodlink\common\auth\JwtService.class
+com\bloodlink\common\dto\UserSummary.class
+com\bloodlink\common\model\BloodType.class
+com\bloodlink\common\model\DonorResponseStatus.class
+com\bloodlink\common\model\UserRole.class
+com\bloodlink\common\auth\JwtClaims.class
+com\bloodlink\common\model\UrgencyLevel.class

@@ -1,0 +1,16 @@
+com\bloodlink\auth\AuthServiceApplication.class
+com\bloodlink\auth\model\UserAccount.class
+com\bloodlink\auth\repository\PatientProfileRepository.class
+com\bloodlink\auth\config\AppConfig.class
+com\bloodlink\auth\config\SecurityConfig.class
+com\bloodlink\auth\dto\PatientProfileRequest.class
+com\bloodlink\auth\dto\LoginRequest.class
+com\bloodlink\auth\controller\PatientController.class
+com\bloodlink\auth\repository\UserAccountRepository.class
+com\bloodlink\auth\dto\AuthResponse.class
+com\bloodlink\auth\controller\ApiExceptionHandler.class
+com\bloodlink\auth\model\PatientProfile.class
+com\bloodlink\auth\controller\AuthController.class
+com\bloodlink\auth\controller\DonorController.class
+com\bloodlink\auth\service\UserAccountService.class
+com\bloodlink\auth\dto\RegisterRequest.class
